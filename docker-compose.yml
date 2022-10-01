@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  juju-log-parser:
+    image: juju-log-parser
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./juju-debug.log:/JujuLogParser/juju-debug.log
+    command: juju-debug.log juju.network
